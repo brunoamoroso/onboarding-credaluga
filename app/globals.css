@@ -86,8 +86,8 @@ body {
 }
 
 body {
-  color: #0D1217;
-  background: #EBF2F7;
+  color: #0D1217 !important;
+  background: #EBF2F7 !important;
 }
 
 a {
@@ -99,8 +99,23 @@ i{
   display: flex;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Margins Blocks for Texts */
+.headlineLarge_MarginBlock, .headlineMedium_MarginBlock, .headlineSmall_MarginBlock{
+  margin-block-start: 2.5rem !important;
+}
+
+p + h1, h2, h3, h4, h5, h6{
+  margin-block-start: 2.5rem !important;
+}
+
+p ~ .headlineLarge_MarginBlock, p ~ .headlineMedium_MarginBlock, p ~ .headlineSmall_MarginBlock{
+  margin-block-end: .5rem !important;
+}
+
+p + p{
+  margin-block-start: 1.5rem !important;
+}
+
+.MuiFab-root > i{
+  font-size: 1.2rem;
 }

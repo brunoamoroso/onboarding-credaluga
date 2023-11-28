@@ -1,27 +1,51 @@
-import { Typography, createTheme } from "@mui/material";
+import { createTheme } from "@mui/material";
 import { Rubik, Poppins } from "next/font/google";
 
 const rubik = Rubik({ weight: ["700"], subsets: ["latin"] });
 const poppins = Poppins({ weight: ["500", "600", "700"], subsets: ["latin"] });
 
 const theme = createTheme({
+  palette:{
+    primary:{
+      main:"#2C73B5",
+    }
+  },
   typography: {
     fontSize: 16,
+    headlineLarge: {
+      fontFamily: `${rubik.style.fontFamily}, Helvetica, Arial, sans-serif`,
+      fontSize: "2rem",
+      lineHeight: "2.5rem",
+    },
+    headlineMedium: {
+      fontFamily: `${rubik.style.fontFamily}, Helvetica, Arial, sans-serif`,
+      fontSize: "1.75rem",
+      lineHeight: "2.25rem",
+    },
+    headlineSmall: {
+      fontFamily: `${rubik.style.fontFamily}, Helvetica, Arial, sans-serif`,
+      fontSize: "1.5rem",
+      lineHeight: "2rem",
+    },
     displaySmall: {
       fontFamily: `${rubik.style.fontFamily}, Helvetica, Arial, sans-serif`,
       fontSize: "2.25rem",
       lineHeight: "2.75rem",
       fontWeight: "700",
     },
-    bodyLarge: {
+    titleMedium:{
       fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+      fontSize: "1rem",
+      fontWeight: "700",
+      lineHeight: "1.5rem",
+      letterSpacing: "0.15px"
     },
-    bodyMedium: {
+    titleSmall: {
       fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
       fontSize: "0.875rem",
+      fontWeight: "600",
       lineHeight: "1.25rem",
-      letterSpacing: "0.25px",
-      fontWeight: "500",
+      letterSpacing: "0.1px",
     },
     labelSmall: {
       fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
@@ -37,14 +61,46 @@ const theme = createTheme({
       lineHeight: "1.25rem",
       letterSpacing: "0.1px",
     },
+    bodyLarge: {
+      fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+    },
+    bodyMedium: {
+      fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
+      letterSpacing: "0.25px",
+      fontWeight: "500",
+    },
+    bodySmall:{
+      fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+      fontSize: "0.75rem",
+      fontWeight: "500",
+      lineHeight: "1rem",
+      letterSpacing: "0.048px",
+    },
   },
   components: {
+    MuiAppBar:{
+      styleOverrides:{
+        root:{
+          backgroundColor: "#FFFFFF",
+        }
+      }
+    },
     MuiTextField: {
       styleOverrides: {
         root: {
           fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
         },
       },
+    },
+    MuiFormHelperText:{
+      styleOverrides:{
+        root:{
+          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+          fontSize: "0.75rem"
+        }
+      }
     },
     MuiInputLabel: {
       styleOverrides: {
@@ -65,6 +121,7 @@ const theme = createTheme({
     MuiFilledInput: {
       styleOverrides: {
         root: {
+          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
           fontSize: "1rem",
           lineHeight: "1.5rem",
           letterSpacing: "0.5px",
@@ -84,12 +141,7 @@ const theme = createTheme({
           "&::after": {
             borderBottom: "none",
           },
-        },
-        input: {
-          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
-          borderColor: "##87919E",
-          borderRadius: "12px",
-          "&:focus": {
+          "&.Mui-focused": {
             border: "2px solid #0098DB",
           },
         },
@@ -117,14 +169,21 @@ const theme = createTheme({
             borderRadius: "14px",
           },
         },
-        containedSizeMedium: {
+        text: {
+          textTransform: "none",
+          fontFamily: `${rubik.style.fontFamily}, Helvetica, Arial, sans-serif`,
+          '&.Mui-disabled': {
+            color: "#A3ADBA",
+          }
+        },
+        sizeMedium: {
           padding: "10px 24px",
           fontSize: "0.875rem",
           fontWeight: "700",
           lineHeight: "1.25rem",
           letterSpacing: "0.1px",
         },
-        containedSizeLarge: {
+        sizeLarge: {
           padding: "20px 32px",
           fontSize: "1.125rem",
           fontWeight: "700",
@@ -155,9 +214,9 @@ const theme = createTheme({
             borderWidth: "2px",
             borderColor: "#BDC7D4",
           },
-          '&.Mui-expanded':{
+          "&.Mui-expanded": {
             margin: "0px",
-          }
+          },
         },
       },
     },
@@ -195,14 +254,72 @@ const theme = createTheme({
         },
       },
     },
-    MuiRadio:{
-      styleOverrides:{
-        root:{
-          '&.Mui-checked': {
+    MuiRadio: {
+      styleOverrides: {
+        root: {
+          "&.Mui-checked": {
             color: "#2C73B5",
             borderColor: "#2C73B5",
-          }
+          },
+        },
+      },
+    },
+    MuiCheckbox:{
+      styleOverrides:{
+        root:{
         }
+      }
+    },
+    MuiFormControlLabel:{
+      styleOverrides:{
+        label:{
+          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+        }
+      }
+    },
+    MuiStepLabel:{
+      styleOverrides:{
+        label:{
+          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+          fontSize: "0.875rem",
+          lineHeight: "1.25rem",
+          fontWeight: "700",
+          letterSpacing: "0.1px",
+          '&.Mui-active':{
+            fontWeight: "700",
+          },
+          '&.Mui-completed':{
+            fontWeight: "700",
+            color: "#87919E",
+          },
+          '&.Mui-disabled':{
+            color: "#87919E",
+          },
+        },
+      }
+    },
+    MuiFab:{
+      styleOverrides:{
+        root:({ownerState}) => ({
+          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+          fontSize: "0.875rem",
+          lineHeight: "1.25rem",
+          fontWeight: "700",
+          letterSpacing: "0.1px",
+          ...(ownerState.color === "whatsapp") && {
+            backgroundColor: "#25D366",
+            color: "#FFF",
+            textTransform: "none",
+            display: "flex",
+            gap: "8px",
+            alignItems: "center",
+            position: "fixed",
+
+            '&:hover': {
+              backgroundColor: "#10DE5B",
+            },
+          },
+        }),
       }
     }
   },
