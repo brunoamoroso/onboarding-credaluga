@@ -76,7 +76,7 @@ export default function Auth() {
                 <Typography variant="bodyMedium">
                   Última etapa! Aqui é onde você pode revisar nossos termos e
                   condições. Por favor, leia com atenção e, quando estiver
-                  pronto, vá até o final e aperte em "Avançar" para finalizar.
+                  pronto, vá até o final e aperte em &quot;Avançar&quot; para finalizar.
                 </Typography>
               </Grid>
               <Grid
