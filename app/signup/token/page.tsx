@@ -74,7 +74,6 @@ export default function Token() {
     const { id, value } = e.target as HTMLInputElement;
 
     if (e.key === "Backspace") {
-      console.log("Backspace");
       if (Number.parseInt(id) > 0) {
         const prevItem = (Number.parseInt(id) - 1).toString();
         document.getElementById(prevItem)?.focus();
@@ -127,8 +126,8 @@ export default function Token() {
     }
 
     //to use in the backend
-    console.log(token);
-    router.push('/signup/password');
+    localStorage.setItem("tokenValidated", "true");
+    router.push("/signup/password");
   }
 
   return (
@@ -178,11 +177,12 @@ export default function Token() {
                     </IconButton>
                   </Grid>
                   <Typography variant="displaySmall">
-                    Token de Verificação
+                    Chegou a hora do Token!
                   </Typography>
                   <Typography variant="bodyMedium">
-                    Enviamos um token para você por email. Preencha os campos a
-                    seguir com esse token.
+                    Enviamos um token de 4 números exclusivo para você por
+                    e-mail. Complete os espaços abaixo com esse código para
+                    seguirmos adiante.
                   </Typography>
                 </Grid>
                 <Grid container item gap={"8px"}>
@@ -193,30 +193,30 @@ export default function Token() {
                     xs={12}
                     justifyContent={"center"}
                   >
-                      <TokenInput
-                        id="0"
-                        handleKeyUp={handleTokenKeyUp}
-                        handlePaste={handleTokenPaste}
-                        error={helperText !== "" ? true : false}
-                      />
-                      <TokenInput
-                        id="1"
-                        handleKeyUp={handleTokenKeyUp}
-                        handlePaste={handleTokenPaste}
-                        error={helperText !== "" ? true : false}
-                      />
-                      <TokenInput
-                        id="2"
-                        handleKeyUp={handleTokenKeyUp}
-                        handlePaste={handleTokenPaste}
-                        error={helperText !== "" ? true : false}
-                      />
-                      <TokenInput
-                        id="3"
-                        handleKeyUp={handleTokenKeyUp}
-                        handlePaste={handleTokenPaste}
-                        error={helperText !== "" ? true : false}
-                      />
+                    <TokenInput
+                      id="0"
+                      handleKeyUp={handleTokenKeyUp}
+                      handlePaste={handleTokenPaste}
+                      error={helperText !== "" ? true : false}
+                    />
+                    <TokenInput
+                      id="1"
+                      handleKeyUp={handleTokenKeyUp}
+                      handlePaste={handleTokenPaste}
+                      error={helperText !== "" ? true : false}
+                    />
+                    <TokenInput
+                      id="2"
+                      handleKeyUp={handleTokenKeyUp}
+                      handlePaste={handleTokenPaste}
+                      error={helperText !== "" ? true : false}
+                    />
+                    <TokenInput
+                      id="3"
+                      handleKeyUp={handleTokenKeyUp}
+                      handlePaste={handleTokenPaste}
+                      error={helperText !== "" ? true : false}
+                    />
                   </Grid>
                   {helperText && (
                     <Grid item textAlign={"center"} xs>
@@ -242,7 +242,7 @@ export default function Token() {
                   >
                     <Grid item>
                       <Typography variant="bodySmall">
-                        Você pode solicitar outro código em
+                        Se você não recebeu, pode solicitar outro código em
                       </Typography>
                     </Grid>
                     <Grid item>
@@ -263,7 +263,7 @@ export default function Token() {
                       disabled={resendToken}
                       onClick={handleResendToken}
                     >
-                      Enviar outro código
+                      Preciso de outro código
                     </Button>
                   </Grid>
                 </Grid>
@@ -301,7 +301,7 @@ export default function Token() {
           </Alert>
         </Snackbar>
       </main>
-      <WhatsAppFab bottom={{xs: "156px", md: "48px"}}/>
+      <WhatsAppFab bottom={{ xs: "156px", md: "48px" }} />
     </Container>
   );
 }

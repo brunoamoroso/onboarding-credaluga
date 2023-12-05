@@ -197,21 +197,21 @@ const theme = createTheme({
         root: {
           boxShadow: "none",
           border: "solid",
-          borderWidth: "0px 2px",
+          borderWidth: "1px 2px",
           borderColor: "#BDC7D4",
           overflow: "hidden",
           "&:first-of-type": {
             borderTopLeftRadius: "12px",
             borderTopRightRadius: "12px",
             border: "solid",
-            borderWidth: "2px",
+            borderWidth: "2px 2px 1px 2px",
             borderColor: "#BDC7D4",
           },
           "&:last-of-type": {
             borderBottomLeftRadius: "12px",
             borderBottomRightRadius: "12px",
             border: "solid",
-            borderWidth: "2px",
+            borderWidth: "1px 2px 2px 2px",
             borderColor: "#BDC7D4",
           },
           "&.Mui-expanded": {
@@ -320,6 +320,20 @@ const theme = createTheme({
             },
           },
         }),
+      }
+    },
+    MuiAlert:{
+      styleOverrides:{
+        root:{
+          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+        },
+        standardSuccess:{
+          backgroundColor: "#00BD63",
+          color: "#FFF",
+        },
+        icon:{
+          color: "#FFF !important",
+        }
       }
     }
   },

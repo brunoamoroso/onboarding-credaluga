@@ -1,85 +1,71 @@
 "use client";
 
-import Navbar from "@/app/components/onboarding/navbar";
-import { Container, Grid, Typography, Button, TextField } from "@mui/material";
-import { Metadata } from "next";
-import StepperDesktop from "@/app/components/onboarding/StepperDesktop";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
-import cpfMask from "@/app/utils/cpfMask";
-import { useRouter } from "next/navigation";
-import WhatsAppFab from "@/app/components/onboarding/whatsAppFab";
-import isValidCPF from "@/app/utils/isValidCPF";
-import encrypt from "@/app/utils/encrypt";
+import {
+    Alert,
+  AppBar,
+  Button,
+  Container,
+  Grid,
+  Snackbar,
+  TextField,
+  Typography,
+} from "@mui/material";
+import Image from "next/image";
+import { SyntheticEvent, useState } from "react";
 
-const metadata: Metadata = {
-  title: "Autenticação",
-};
-
-export default function Auth() {
-  const [cpfValue, setCPFValue] = useState("");
+export default function ForgotPassword() {
   const [helperText, setHelperText] = useState("");
-  const router = useRouter();
+  const [openSnack, setOpenSnack] = useState(false);
 
-  function handleKeyDownCPF(e: KeyboardEvent<HTMLInputElement>) {
-    const isValid = /([\d]|Backspace)/g.test(e.key);
-    if (!isValid) {
-      e.preventDefault();
+  function handleSnackClose(e: SyntheticEvent | Event, reason?: string) {
+    if (reason === "clickaway") {
       return;
     }
-
-    const inputCPF = e.target as HTMLInputElement;
-    const cleanCPF = inputCPF.value.replace(".", "").replace("-", "");
-    if (inputCPF.value.length >= 14 && e.key !== "Backspace") {
-      e.preventDefault();
-      setCPFValue(inputCPF.value.slice(0, 14));
-      return;
-    }
+    setOpenSnack(false);
   }
 
-  function handleChangeCPF(e: ChangeEvent<HTMLInputElement>) {
-    setCPFValue(cpfMask(e.target.value));
+  function handleAction(){
+    setOpenSnack(true);
   }
-
-  async function handleAction(formData: any) {
-    const inputCPF = document.getElementById("cpf") as HTMLInputElement;
-    if (inputCPF.value === "") {
-      setHelperText("Este campo é obrigatório");
-      return;
-    }
-
-    if (inputCPF.value.length < 13) {
-      setHelperText("O CPF não está completo");
-      return;
-    }
-
-    if (!isValidCPF(inputCPF.value)) {
-      setHelperText("Digite um CPF válido");
-      return;
-    }
-
-    localStorage.setItem("cpf", await encrypt(formData.get("cpf")));
-    router.push("/signup/profile-research");
-  }
-
   return (
-    <Container disableGutters={true} maxWidth={false}>
-      <Navbar
-        step={1}
-        title="Autenticação"
-        icon={<i className="bi bi-person-badge-fill"></i>}
-        progress={0}
-        backBtn={false}
-      />
+    <>
+      <AppBar position="static" color="default" sx={{ padding: "16px 0px" }}>
+        <Container disableGutters={true} maxWidth={false}>
+          <Grid container flexDirection={"column"} gap={"32px"}>
+            <Grid
+              item
+              sx={{
+                paddingLeft: {
+                  xs: "16px",
+                  sm: "16px",
+                  md: "56px",
+                  lg: "56px",
+                  xl: "56px",
+                },
+              }}
+              alignItems={"center"}
+            >
+              <Image
+                src={"/credaluga-logo.svg"}
+                height={32}
+                width={186}
+                alt="CredAluga Logo"
+                style={{ display: "flex" }}
+              />
+            </Grid>
+          </Grid>
+        </Container>
+      </AppBar>
 
       <main>
-        <Container sx={{ height: "auto" }}>
+        <Container>
           <Grid
             container
             item
+            sx={{ height: { md: "87vh" } }}
             justifyContent={"center"}
-            sx={{ paddingBottom: { xs: "0px", md: "40px" } }}
+            alignItems={"center"}
           >
-            <StepperDesktop activeStep={0} />
             <Grid
               container
               item
@@ -115,19 +101,12 @@ export default function Auth() {
                   alignSelf={"flex-start"}
                 >
                   <Typography variant="displaySmall">
-                    Sua segurança é nossa prioridade!
+                    Esqueci minha senha
                   </Typography>
                   <Typography variant="bodyMedium">
-                    Estamos aqui para garantir uma experiência segura e
-                    eficiente para você. 
-                    <br />
-                    <br />
-                    Para sua segurança, em poucos passos
-                    vamos juntos confirmar sua identidade.
-                    <br />
-                    <br />
-                    Vamos começar com seu
-                    CPF. Confirme abaixo, e deixe o restante conosco.
+                    Digite seu email para a gente te enviar um email de
+                    recuperação de senha. Entendemos que isso acontece e vamos
+                    te ajudar.
                   </Typography>
                 </Grid>
 
@@ -147,14 +126,12 @@ export default function Auth() {
                     >
                       <Grid item>
                         <TextField
-                          id="cpf"
-                          name="cpf"
+                          id="email"
+                          name="email"
+                          type="email"
                           variant="filled"
-                          label="CPF"
+                          label="Email"
                           fullWidth={true}
-                          onKeyDown={handleKeyDownCPF}
-                          onChange={handleChangeCPF}
-                          value={cpfValue}
                           required={true}
                           helperText={helperText}
                           error={helperText !== "" ? true : false}
@@ -177,7 +154,7 @@ export default function Auth() {
                           size="large"
                           fullWidth={true}
                         >
-                          Avançar
+                          Recuperar senha
                         </Button>
                       </Grid>
                     </Grid>
@@ -186,9 +163,18 @@ export default function Auth() {
               </Grid>
             </Grid>
           </Grid>
+          <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          open={openSnack}
+          autoHideDuration={4000}
+          onClose={handleSnackClose}
+        >
+          <Alert severity="success" onClose={handleSnackClose}>
+            Enviamos um email para você recuperar a senha.
+          </Alert>
+        </Snackbar>
         </Container>
       </main>
-      <WhatsAppFab bottom={{ xs: "156px", md: "48px" }} />
-    </Container>
+    </>
   );
 }

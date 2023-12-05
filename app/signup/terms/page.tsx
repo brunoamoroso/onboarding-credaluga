@@ -13,6 +13,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { useRouter } from "next/navigation";
 import WhatsAppFab from "@/app/components/onboarding/whatsAppFab";
+import StepperDesktop from "@/app/components/onboarding/StepperDesktop";
 
 const metadata: Metadata = {
   title: "Aceite de Termos",
@@ -31,7 +32,8 @@ export default function Auth() {
       />
 
       <main>
-        <Container sx={{}}>
+        <Container>
+          <StepperDesktop activeStep={4} />
           <Grid
             container
             justifyContent={"center"}
@@ -69,11 +71,12 @@ export default function Auth() {
                   </IconButton>
                 </Grid>
                 <Typography variant="displaySmall" component={"h1"}>
-                  Aceite de Termos
+                  Leia e aceite os termos
                 </Typography>
                 <Typography variant="bodyMedium">
-                  Sabemos que já te identificamos, mas precisamos que você
-                  preencha seus dados aqui para salvarmos na nossa plataforma.
+                  Última etapa! Aqui é onde você pode revisar nossos termos e
+                  condições. Por favor, leia com atenção e, quando estiver
+                  pronto, vá até o final e aperte em "Avançar" para finalizar.
                 </Typography>
               </Grid>
               <Grid
@@ -152,7 +155,7 @@ export default function Auth() {
           </Grid>
         </Container>
       </main>
-        <WhatsAppFab bottom={{ xs: "156px", md: "48px" }} />
+      <WhatsAppFab bottom={{ xs: "156px", md: "48px" }} />
     </Container>
   );
 }

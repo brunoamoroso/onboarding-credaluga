@@ -17,6 +17,7 @@ import { ChangeEvent, useState } from "react";
 import PasswordProgressBar from "@/app/components/onboarding/PasswordProgressBar";
 import { passwordCheck } from "@/app/utils/passwordCheck";
 import WhatsAppFab from "@/app/components/onboarding/whatsAppFab";
+import encrypt from "@/app/utils/encrypt";
 
 const metadata: Metadata = {
   title: "Senha",
@@ -42,11 +43,10 @@ export default function Password() {
     const passValidations = passwordCheck(password);
     setValidations(passValidations);
 
-    if(!Object.values(passValidations).every((check) => check === true)){
+    if (!Object.values(passValidations).every((check) => check === true)) {
       setPasswordValid(false);
       return;
     }
-
 
     setPasswordValid(true);
     setHelperPassword("");
@@ -71,7 +71,7 @@ export default function Password() {
     setConfirmPasswordValid(true);
   }
 
-  function handleSubmit(formData: any) {
+  async function handleSubmit(formData: any) {
     const inputPassword = document.getElementById(
       "password"
     ) as HTMLInputElement;
@@ -92,11 +92,12 @@ export default function Password() {
       return;
     }
 
-    if((helperPassword !== "") || (helperConfirmPassword !== "")){
+    if (helperPassword !== "" || helperConfirmPassword !== "") {
       return;
     }
 
     const password = formData.get("password");
+    localStorage.setItem("password", await encrypt(password));
     router.push("/signup/terms");
   }
 
@@ -134,12 +135,7 @@ export default function Password() {
               lg={6}
             >
               <Grid container item gap={"40px"} flexDirection={"column"}>
-                <Grid
-                  container
-                  item
-                  gap={"8px"}
-                  flexDirection={"column"}
-                >
+                <Grid container item gap={"8px"} flexDirection={"column"}>
                   <Grid item sx={{ display: { xs: "none", md: "flex" } }}>
                     <IconButton
                       color="primary"
@@ -150,26 +146,39 @@ export default function Password() {
                     </IconButton>
                   </Grid>
                   <Typography variant="displaySmall" component={"h1"}>
-                    Defina sua senha
+                    Crie sua senha
                   </Typography>
                   <Typography variant="bodyMedium" component={"p"}>
-                    Defina uma senha para acessar a nossa plataforma. Siga a
-                    nossa política de segurança para ter um senha forte e
-                    segura.
+                    Estamos quase lá. Agora é hora de definir sua senha de
+                    acesso a plataforma. Use uma combinação inteligente para
+                    garantir uma senha forte e segura.
                   </Typography>
                 </Grid>
 
                 <form
                   noValidate
-                  style={{ width: "100%", display:"flex", flexGrow: "2", flexDirection: "column" }}
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    flexGrow: "2",
+                    flexDirection: "column",
+                  }}
                   action={handleSubmit}
                 >
-                  <Grid container item  flexGrow={"3"} height={"100%"} flexDirection={"column"} flexWrap={"nowrap"}>
+                  <Grid
+                    container
+                    item
+                    flexGrow={"3"}
+                    height={"100%"}
+                    flexDirection={"column"}
+                    flexWrap={"nowrap"}
+                  >
                     <Grid container item gap={"24px"} xs={12} flexGrow={"1"}>
                       <Grid container item gap={"8px"}>
                         <TextField
                           id="password"
                           name="password"
+                          type="password"
                           variant="filled"
                           label="Senha"
                           fullWidth={true}
@@ -196,6 +205,7 @@ export default function Password() {
                       <TextField
                         id="confirmPassword"
                         variant="filled"
+                        type="password"
                         label="Confirmação de Senha"
                         fullWidth={true}
                         required={true}
@@ -217,14 +227,13 @@ export default function Password() {
                       />
                     </Grid>
                     <Grid
-                    container
+                      container
                       item
                       xs={12}
                       sx={{
                         paddingTop: { xs: "40px", md: "40px" },
                         paddingBottom: { xs: "0px", md: "0px" },
                       }}
-                      
                       alignItems={"end"}
                     >
                       <Button
@@ -243,7 +252,7 @@ export default function Password() {
             </Grid>
           </Grid>
         </Container>
-        <WhatsAppFab bottom={{xs: "180px", md: "48px"}}/>
+        <WhatsAppFab bottom={{ xs: "180px", md: "48px" }} />
       </main>
     </Container>
   );

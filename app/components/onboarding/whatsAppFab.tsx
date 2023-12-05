@@ -14,7 +14,7 @@ interface IWhatsAppFab{
 
 export default function WhatsAppFab({bottom: {xs: xsBottom = "112px", md: mdBottom = "56px"} = {}, right: {xs: xsRight = "16px", md: mdRight = "48px"} = {}}: IWhatsAppFab) {
   return (
-    <Link href={"https://wa.me/+5531999786295"}>
+    <Link href={"https://wa.me/+553131914866"}>
       <Fab
         variant="extended"
         color="whatsapp"
