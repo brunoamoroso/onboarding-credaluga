@@ -188,7 +188,7 @@ export default function Login() {
                               endAdornment: (
                                 <InputAdornment position="end">
                                   <IconButton aria-label="mostra ou esconde a sua senha" onClick={handleShowPassword}>
-                                    {showPassword ? <i className="bi bi-eye-slash"></i> : <i className="bi bi-eye"></i>}
+                                    {showPassword ? <i className="bi bi-eye"></i> : <i className="bi bi-eye-slash"></i>}
                                   </IconButton>
                                 </InputAdornment>
                               ),
