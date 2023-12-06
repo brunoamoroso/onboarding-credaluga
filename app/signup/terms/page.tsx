@@ -37,7 +37,7 @@ export default function Auth() {
           <Grid
             container
             justifyContent={"center"}
-            marginTop={"48px"}
+            marginTop={"32px"}
             paddingBottom={"80px"}
           >
             <Grid
@@ -70,11 +70,20 @@ export default function Auth() {
                     <i className="bi bi-arrow-left"></i>
                   </IconButton>
                 </Grid>
-                <Typography variant="displaySmall" component={"h1"}>
-                  Leia e aceite os termos
-                </Typography>
+                <Grid item display={{ xs: "none", md: "flex" }}>
+                  <Typography variant="displaySmall" component={"h1"}>
+                    Leia e aceite os termos
+                  </Typography>
+                </Grid>
+                {/* mobile */}
+                <Grid item display={{xs: "flex", md: "none"}}>
+                  <Typography variant="headlineMedium" component={"h1"}>
+                    Leia e aceite os termos
+                  </Typography>
+                </Grid>
                 <Typography variant="bodyMedium">
-                  Última etapa. Aqui é onde você encontra nossos termos. Para finalizar, siga até o final.
+                  Última etapa. Aqui é onde você encontra nossos termos. Para
+                  finalizar, siga até o final.
                 </Typography>
               </Grid>
               <Grid
