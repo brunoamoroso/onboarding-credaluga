@@ -6,16 +6,19 @@ import {
   Button,
   Container,
   Grid,
+  IconButton,
   Snackbar,
   TextField,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { SyntheticEvent, useState } from "react";
 
 export default function ForgotPassword() {
   const [helperText, setHelperText] = useState("");
   const [openSnack, setOpenSnack] = useState(false);
+  const router = useRouter();
 
   function handleSnackClose(e: SyntheticEvent | Event, reason?: string) {
     if (reason === "clickaway") {
@@ -69,8 +72,10 @@ export default function ForgotPassword() {
             <Grid
               container
               item
-              marginTop={"48px"}
               sx={{
+                marginTop: "48px",
+                flexDirection: "column",
+                gap: "8px",
                 height: { xs: "73vh", md: "auto" },
                 backgroundColor: { xs: "transparent", md: "#FFFFFF" },
                 padding: { xs: "0px", md: "24px" },
@@ -83,8 +88,16 @@ export default function ForgotPassword() {
               xs={12}
               md={7}
               lg={6}
-              flexDirection={"column"}
             >
+                <Grid item sx={{ display: { xs: "none", md: "flex" } }}>
+                    <IconButton
+                      color="primary"
+                      aria-label="fingerprint"
+                      onClick={() => router.back()}
+                    >
+                      <i className="bi bi-arrow-left"></i>
+                    </IconButton>
+                  </Grid>
               <Grid
                 container
                 item
@@ -101,7 +114,7 @@ export default function ForgotPassword() {
                   alignSelf={"flex-start"}
                 >
                   <Typography variant="displaySmall">
-                    Esqueci minha senha
+                    Recuperar minha senha
                   </Typography>
                   <Typography variant="bodyMedium">
                     Digite seu email para a gente te enviar um email de
