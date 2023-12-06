@@ -4,8 +4,8 @@ import { Rubik, Poppins } from "next/font/google";
 const rubik = Rubik({ weight: ["700"], subsets: ["latin"] });
 const poppins = Poppins({ weight: ["500", "600", "700"], subsets: ["latin"] });
 
-declare module '@mui/material/styles'{
-  interface TypographyVariants{
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
     displaySmall: React.CSSProperties;
     headlineLarge: React.CSSProperties;
     headlineMedium: React.CSSProperties;
@@ -20,7 +20,7 @@ declare module '@mui/material/styles'{
   }
 
   //allow configuration using createTheme
-  interface TypographyVariantsOptions{
+  interface TypographyVariantsOptions {
     displaySmall?: React.CSSProperties;
     headlineLarge?: React.CSSProperties;
     headlineMedium?: React.CSSProperties;
@@ -35,8 +35,8 @@ declare module '@mui/material/styles'{
   }
 }
 
-declare module '@mui/material/Typography'{
-  interface TypographyPropsVariantOverrides{
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
     displaySmall?: true;
     headlineLarge?: true;
     headlineMedium?: true;
@@ -51,11 +51,17 @@ declare module '@mui/material/Typography'{
   }
 }
 
+declare module "@mui/material/Fab" {
+  interface FabPropsVariantOverrides {
+    whatsapp: true;
+  }
+}
+
 const theme = createTheme({
-  palette:{
-    primary:{
-      main:"#2C73B5",
-    }
+  palette: {
+    primary: {
+      main: "#2C73B5",
+    },
   },
   typography: {
     fontSize: 16,
@@ -80,12 +86,12 @@ const theme = createTheme({
       lineHeight: "2.75rem",
       fontWeight: "700",
     },
-    titleMedium:{
+    titleMedium: {
       fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
       fontSize: "1rem",
       fontWeight: "700",
       lineHeight: "1.5rem",
-      letterSpacing: "0.15px"
+      letterSpacing: "0.15px",
     },
     titleSmall: {
       fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
@@ -118,7 +124,7 @@ const theme = createTheme({
       letterSpacing: "0.25px",
       fontWeight: "500",
     },
-    bodySmall:{
+    bodySmall: {
       fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
       fontSize: "0.75rem",
       fontWeight: "500",
@@ -127,12 +133,12 @@ const theme = createTheme({
     },
   },
   components: {
-    MuiAppBar:{
-      styleOverrides:{
-        root:{
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
           backgroundColor: "#FFFFFF",
-        }
-      }
+        },
+      },
     },
     MuiTextField: {
       styleOverrides: {
@@ -141,13 +147,13 @@ const theme = createTheme({
         },
       },
     },
-    MuiFormHelperText:{
-      styleOverrides:{
-        root:{
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
           fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
-          fontSize: "0.75rem"
-        }
-      }
+          fontSize: "0.75rem",
+        },
+      },
     },
     MuiInputLabel: {
       styleOverrides: {
@@ -219,9 +225,9 @@ const theme = createTheme({
         text: {
           textTransform: "none",
           fontFamily: `${rubik.style.fontFamily}, Helvetica, Arial, sans-serif`,
-          '&.Mui-disabled': {
+          "&.Mui-disabled": {
             color: "#A3ADBA",
-          }
+          },
         },
         sizeMedium: {
           padding: "10px 24px",
@@ -311,49 +317,44 @@ const theme = createTheme({
         },
       },
     },
-    MuiCheckbox:{
-      styleOverrides:{
-        root:{
-        }
-      }
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {},
+      },
     },
-    MuiFormControlLabel:{
-      styleOverrides:{
-        label:{
+    MuiFormControlLabel: {
+      styleOverrides: {
+        label: {
           fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
-        }
-      }
+        },
+      },
     },
-    MuiStepLabel:{
-      styleOverrides:{
-        label:{
+    MuiStepLabel: {
+      styleOverrides: {
+        label: {
           fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
           fontSize: "0.875rem",
           lineHeight: "1.25rem",
           fontWeight: "700",
           letterSpacing: "0.1px",
-          '&.Mui-active':{
+          "&.Mui-active": {
             fontWeight: "700",
           },
-          '&.Mui-completed':{
+          "&.Mui-completed": {
             fontWeight: "700",
             color: "#87919E",
           },
-          '&.Mui-disabled':{
+          "&.Mui-disabled": {
             color: "#87919E",
           },
         },
-      }
+      },
     },
-    MuiFab:{
-      styleOverrides:{
-        root:({ownerState}) => ({
-          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
-          fontSize: "0.875rem",
-          lineHeight: "1.25rem",
-          fontWeight: "700",
-          letterSpacing: "0.1px",
-          ...(ownerState.color === "whatsapp") && {
+    MuiFab: {
+      variants: [
+        {
+          props: { variant: "whatsapp" },
+          style: {
             backgroundColor: "#25D366",
             color: "#FFF",
             textTransform: "none",
@@ -362,27 +363,36 @@ const theme = createTheme({
             alignItems: "center",
             position: "fixed",
 
-            '&:hover': {
+            "&:hover": {
               backgroundColor: "#10DE5B",
             },
           },
-        }),
-      }
+        },
+      ],
+      styleOverrides: {
+        root: {
+          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+          fontSize: "0.875rem",
+          lineHeight: "1.25rem",
+          fontWeight: "700",
+          letterSpacing: "0.1px",
+        },
+      },
     },
-    MuiAlert:{
-      styleOverrides:{
-        root:{
+    MuiAlert: {
+      styleOverrides: {
+        root: {
           fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
         },
-        standardSuccess:{
+        standardSuccess: {
           backgroundColor: "#00BD63",
           color: "#FFF",
         },
-        icon:{
+        icon: {
           color: "#FFF !important",
-        }
-      }
-    }
+        },
+      },
+    },
   },
 });
 
