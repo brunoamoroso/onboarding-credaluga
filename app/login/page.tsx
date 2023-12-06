@@ -227,13 +227,11 @@ export default function Login() {
                             fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
                             fontSize: "0.6875rem",
                             lineHeight: "1rem",
-                            fontWeight: "700",
                             textDecoration: "underline",
-                            color: "#2C73B5",
                           }}
                         >
                           <Link href={"/forgot-password"}>
-                            <span>Esqueci minha senha</span>
+                            <span>Recuperar minha senha</span>
                           </Link>
                         </Grid>
                       </Grid>
