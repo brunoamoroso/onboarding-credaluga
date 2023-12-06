@@ -74,9 +74,7 @@ export default function Auth() {
                   Leia e aceite os termos
                 </Typography>
                 <Typography variant="bodyMedium">
-                  Última etapa! Aqui é onde você pode revisar nossos termos e
-                  condições. Por favor, leia com atenção e, quando estiver
-                  pronto, vá até o final e aperte em &quot;Avançar&quot; para finalizar.
+                  Última etapa. Aqui é onde você encontra nossos termos. Para finalizar, siga até o final.
                 </Typography>
               </Grid>
               <Grid
