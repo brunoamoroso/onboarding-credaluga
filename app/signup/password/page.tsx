@@ -149,9 +149,7 @@ export default function Password() {
                     Crie sua senha
                   </Typography>
                   <Typography variant="bodyMedium" component={"p"}>
-                    Estamos quase lá. Agora é hora de definir sua senha de
-                    acesso a plataforma. Use uma combinação inteligente para
-                    garantir uma senha forte e segura.
+                    Estamos quase lá. escolha uma combinação forte e segura.
                   </Typography>
                 </Grid>
 
