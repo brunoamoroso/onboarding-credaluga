@@ -216,7 +216,7 @@ export default function Login() {
                         >
                           <FormControlLabel
                             control={<Checkbox defaultChecked />}
-                            label="Mantenha me conectado"
+                            label="Me manter conectado"
                             disableTypography={true}
                             name="keepConnected"
                           />
@@ -225,8 +225,9 @@ export default function Login() {
                           item
                           sx={{
                             fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
-                            fontSize: "0.6875rem",
+                            fontSize: "0.75rem",
                             lineHeight: "1rem",
+                            letterSpacing: "0.048px",
                             textDecoration: "underline",
                           }}
                         >
