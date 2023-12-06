@@ -25,7 +25,7 @@ export default function Login() {
   const [helperPassword, setHelperPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  function handleShowPassword(){
+  function handleShowPassword() {
     setShowPassword(!showPassword);
   }
 
@@ -45,7 +45,7 @@ export default function Login() {
     if (inputPassword.value === "") {
       setHelperPassword("Este campo é obrigatório");
       return;
-    }else{
+    } else {
       setHelperPassword("");
     }
   }
@@ -85,7 +85,7 @@ export default function Login() {
           sx={{
             height: { xs: "79vh", md: "auto" },
             marginTop: "48px",
-            marginBottom: {xs:"80px", md: "48px"},
+            marginBottom: { xs: "80px", md: "48px" },
             justifyContent: "center",
             alignItems: { xs: "start", md: "center" },
             display: "flex",
@@ -138,12 +138,20 @@ export default function Login() {
                 flexDirection={"column"}
               >
                 <Grid container item gap={"8px"} flexDirection={"column"}>
-                  <Typography variant="displaySmall">
-                    Bem vindo(a) CredAluga
-                  </Typography>
+                  <Grid item display={{xs: "none", md: "flex"}}>
+                    <Typography variant="displaySmall">
+                      Seja bem vindo(a) a CredAluga
+                    </Typography>
+                  </Grid>
+                  {/* mobile */}
+                  <Grid item display={{xs: "flex", md: "none"}}>
+                    <Typography variant="headlineSmall">
+                      Seja bem vindo(a) a CredAluga
+                    </Typography>
+                  </Grid>
                   <Typography variant="bodyMedium">
-                    Informe seu email e senha para acessar a plataforma da
-                    CredAluga.
+                    Preencha seus dados para acessar a plataforma que irá
+                    facilitar seus aluguéis.
                   </Typography>
                 </Grid>
 
@@ -179,8 +187,15 @@ export default function Login() {
                             InputProps={{
                               endAdornment: (
                                 <InputAdornment position="end">
-                                  <IconButton aria-label="mostra ou esconde a sua senha" onClick={handleShowPassword}>
-                                    {showPassword ? <i className="bi bi-eye"></i> : <i className="bi bi-eye-slash"></i>}
+                                  <IconButton
+                                    aria-label="mostra ou esconde a sua senha"
+                                    onClick={handleShowPassword}
+                                  >
+                                    {showPassword ? (
+                                      <i className="bi bi-eye"></i>
+                                    ) : (
+                                      <i className="bi bi-eye-slash"></i>
+                                    )}
                                   </IconButton>
                                 </InputAdornment>
                               ),
@@ -252,8 +267,16 @@ export default function Login() {
           </Grid>
         </Container>
       </main>
-      <Box sx={{position: "fixed", right: "0px", bottom: "48px", backgroundColor: "#FFF", paddingTop: "8px"}}>
-        <Image 
+      <Box
+        sx={{
+          position: "fixed",
+          right: "0px",
+          bottom: "96px",
+          backgroundColor: "#FFF",
+          paddingTop: "8px",
+        }}
+      >
+        <Image
           src={"/invisible-recaptcha.png"}
           width={80}
           height={70}
