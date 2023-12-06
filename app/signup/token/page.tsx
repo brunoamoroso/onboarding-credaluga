@@ -63,9 +63,10 @@ export default function Token() {
 
     //mask cellphone
     const mockCell = "(48)99965-3215";
-    setCellphone(mockCell.replace(/(\(\d{2}\))(.\d{4,5})(.\d{4})/g, "$1*****$3"));
-
-  })
+    setCellphone(
+      mockCell.replace(/(\(\d{2}\))(.\d{4,5})(.\d{4})/g, "$1*****$3")
+    );
+  });
 
   function handleResendToken() {
     setResendToken(true);
@@ -157,7 +158,7 @@ export default function Token() {
             <Grid
               container
               item
-              marginTop={"48px"}
+              marginTop={"32px"}
               justifyContent={"space-between"}
               height={"auto"}
               sx={{
@@ -186,11 +187,19 @@ export default function Token() {
                       <i className="bi bi-arrow-left"></i>
                     </IconButton>
                   </Grid>
-                  <Typography variant="displaySmall">
-                    Chegou a hora do Token!
-                  </Typography>
+                  <Grid item display={{ xs: "none", md: "flex" }}>
+                    <Typography variant="displaySmall">
+                      Chegou a hora do Token!
+                    </Typography>
+                  </Grid>
+                  <Grid item display={{ xs: "flex", md: "none" }}>
+                    <Typography variant="headlineMedium">
+                      Chegou a hora do Token!
+                    </Typography>
+                  </Grid>
                   <Typography variant="bodyMedium">
-                    Enviamos um código token com 4 digítos por SMS para {cellphone}, confirme o código abaixo.
+                    Enviamos um código token com 4 digítos por SMS para{" "}
+                    {cellphone}, confirme o código abaixo.
                   </Typography>
                 </Grid>
                 <Grid container item gap={"8px"}>
