@@ -276,20 +276,27 @@ const theme = createTheme({
     MuiAccordionSummary: {
       styleOverrides: {
         root: {
-          padding: "24px 32px",
+          padding: "16px 32px",
           "&.Mui-expanded": {
+            
             boxShadow: "inset 8px 0px #0080B8",
             backgroundColor: "#FFF",
           },
         },
-        content: {
+        content: ({theme}) => ({
           fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
-          fontSie: "1rem",
+          [theme.breakpoints.down('md')]:{
+            fontSize: "0.875rem",
+          },
+          fontSize: "1rem",
           fontWeight: "700",
           lineHeight: "1.5rem",
           letterSpacing: "0.1px",
           margin: "0px",
-        },
+          '&.Mui-expanded': {
+            margin: "0px",
+          }
+        }),
         expandIconWrapper: ({ ownerState }) => ({
           color: "#0080B8",
           "&.Mui-expanded": {
@@ -324,9 +331,12 @@ const theme = createTheme({
     },
     MuiFormControlLabel: {
       styleOverrides: {
-        label: {
+        label: ({theme}) => ({
           fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
-        },
+          [theme.breakpoints.down('md')]:{
+            fontSize: "0.875rem",
+          }
+        }),
       },
     },
     MuiStepLabel: {
