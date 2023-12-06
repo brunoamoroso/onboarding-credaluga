@@ -83,7 +83,7 @@ export default function Auth() {
             <Grid
               container
               item
-              marginTop={"48px"}
+              marginTop={"32px"}
               sx={{
                 height: { xs: "73vh", md: "auto" },
                 backgroundColor: { xs: "transparent", md: "#FFFFFF" },
@@ -114,12 +114,20 @@ export default function Auth() {
                   flexDirection={"column"}
                   alignSelf={"flex-start"}
                 >
-                  <Typography variant="displaySmall">
-                    Sua segurança é nossa prioridade!
-                  </Typography>
+                  <Grid item display={{xs: "none", md: "flex"}}>
+                    <Typography variant="displaySmall">
+                      Sua segurança é nossa prioridade!
+                    </Typography>
+                  </Grid>
+                  {/* mobile */}
+                  <Grid item display={{xs: "flex", md: "none"}}>
+                    <Typography variant="headlineMedium">
+                      Sua segurança é nossa prioridade!
+                    </Typography>
+                  </Grid>
                   <Typography variant="bodyMedium">
                     Estamos aqui para garantir uma experiência segura e
-                    eficiente para você. 
+                    eficiente para você.
                     <br />
                     <br />
                     Para sua segurança, confirme seu CPF.
