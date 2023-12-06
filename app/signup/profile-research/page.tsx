@@ -180,8 +180,7 @@ export default function ProfileResearch() {
                   </Typography>
                   <Typography variant="bodyMedium">
                     Aqui na CredAluga, valorizamos a individualidade. Responda
-                    algumas perguntinhas rápidas para que possamos conhecer você
-                    melhor.
+                    algumas perguntas rápidas para conhecer você melhor.
                   </Typography>
                 </Grid>
 
