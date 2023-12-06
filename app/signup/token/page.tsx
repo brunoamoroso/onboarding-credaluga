@@ -34,6 +34,7 @@ export default function Token() {
   const [resendToken, setResendToken] = useState(true);
   const [openSnack, setOpenSnack] = useState(false);
   const [helperText, setHelperText] = useState("");
+  const [cellphone, setCellphone] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -56,6 +57,15 @@ export default function Token() {
     }, 1000);
     return () => clearInterval(interval);
   });
+
+  useEffect(() => {
+    //do a fetch here
+
+    //mask cellphone
+    const mockCell = "(48)99965-3215";
+    setCellphone(mockCell.replace(/(\(\d{2}\))(.\d{4,5})(.\d{4})/g, "$1*****$3"));
+
+  })
 
   function handleResendToken() {
     setResendToken(true);
@@ -180,9 +190,7 @@ export default function Token() {
                     Chegou a hora do Token!
                   </Typography>
                   <Typography variant="bodyMedium">
-                    Enviamos um token de 4 números exclusivo para você por
-                    e-mail. Complete os espaços abaixo com esse código para
-                    seguirmos adiante.
+                    Enviamos um código token com 4 digítos por SMS para {cellphone}, confirme o código abaixo.
                   </Typography>
                 </Grid>
                 <Grid container item gap={"8px"}>

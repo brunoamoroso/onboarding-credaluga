@@ -278,13 +278,12 @@ const theme = createTheme({
         root: {
           padding: "16px 32px",
           "&.Mui-expanded": {
-            
             boxShadow: "inset 8px 0px #0080B8",
             backgroundColor: "#FFF",
           },
         },
         content: ({theme}) => ({
-          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+          fontFamily: `${rubik.style.fontFamily}, Helvetica, Arial, sans-serif`,
           [theme.breakpoints.down('md')]:{
             fontSize: "0.875rem",
           },
@@ -333,6 +332,7 @@ const theme = createTheme({
       styleOverrides: {
         label: ({theme}) => ({
           fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
+          fontSize: "1rem",
           [theme.breakpoints.down('md')]:{
             fontSize: "0.875rem",
           }
