@@ -122,12 +122,7 @@ export default function Auth() {
                     eficiente para você. 
                     <br />
                     <br />
-                    Para sua segurança, em poucos passos
-                    vamos juntos confirmar sua identidade.
-                    <br />
-                    <br />
-                    Vamos começar com seu
-                    CPF. Confirme abaixo, e deixe o restante conosco.
+                    Para sua segurança, confirme seu CPF.
                   </Typography>
                 </Grid>
 
