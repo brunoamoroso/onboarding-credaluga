@@ -11,6 +11,7 @@ import {
   Button,
   InputAdornment,
   IconButton,
+  Box,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,7 +23,6 @@ const poppins = Poppins({ weight: ["500", "600", "700"], subsets: ["latin"] });
 export default function Login() {
   const [helperEmail, setHelperEmail] = useState("");
   const [helperPassword, setHelperPassword] = useState("");
-  const [helperCaptcha, setHelperCaptcha] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   function handleShowPassword(){
@@ -34,7 +34,6 @@ export default function Login() {
     const inputPassword = document.getElementById(
       "password"
     ) as HTMLInputElement;
-    const inputCaptcha = document.getElementById("captcha") as HTMLFormElement;
 
     if (inputEmail.value === "") {
       setHelperEmail("Este campo é obrigatório");
@@ -48,13 +47,6 @@ export default function Login() {
       return;
     }else{
       setHelperPassword("");
-    }
-
-    if(!inputCaptcha.control.checked){
-      setHelperCaptcha("Confirme que não é um robô");
-      return;
-    }else{
-      setHelperCaptcha("");
     }
   }
 
@@ -93,7 +85,7 @@ export default function Login() {
           sx={{
             height: { xs: "79vh", md: "auto" },
             marginTop: "48px",
-            marginBottom: "80px",
+            marginBottom: {xs:"80px", md: "48px"},
             justifyContent: "center",
             alignItems: { xs: "start", md: "center" },
             display: "flex",
@@ -160,7 +152,7 @@ export default function Login() {
                   style={{ width: "100%", display: "flex", flexGrow: "1" }}
                 >
                   <Grid container item gap={"40px"}>
-                    <Grid container item gap={"8px"}>
+                    <Grid container item gap={"8px"} alignSelf={"flex-start"}>
                       <Grid container item gap={"24px"}>
                         <Grid item xs={12}>
                           <TextField
@@ -240,44 +232,6 @@ export default function Login() {
                     <Grid
                       container
                       item
-                      sx={{ backgroundColor: "#DBE3F0", padding: "8px" }}
-                      justifyContent={"space-between"}
-                      alignItems={"center"}
-                    >
-                      <Grid
-                        xs
-                        container
-                        item
-                        flexDirection={"column"}
-                        sx={{
-                          fontFamily: `${poppins.style.fontFamily}, Helvetica, Arial, sans-serif`,
-                          fontSize: "0.75rem",
-                          lineHeight: "1rem",
-                          fontWeight: "500",
-                          letterSpacing: "0.048px",
-                        }}
-                      >
-                        <FormControlLabel
-                          control={<Checkbox />}
-                          label="Não sou um robô"
-                          disableTypography={true}
-                          name="captcha"
-                          id="captcha"
-                        />
-                        <Typography variant="bodySmall"  sx={{ color: "#d32f2f" }}>{helperCaptcha}</Typography>
-                      </Grid>
-                      <Grid item>
-                        <Image
-                          src={"/invisible-recaptcha.png"}
-                          height={51}
-                          width={70}
-                          alt="recaptcha-image"
-                        />
-                      </Grid>
-                    </Grid>
-                    <Grid
-                      container
-                      item
                       flexDirection={"column"}
                       justifyContent={"flex-end"}
                     >
@@ -298,6 +252,14 @@ export default function Login() {
           </Grid>
         </Container>
       </main>
+      <Box sx={{position: "fixed", right: "0px", bottom: "48px", backgroundColor: "#FFF", paddingTop: "8px"}}>
+        <Image 
+          src={"/invisible-recaptcha.png"}
+          width={80}
+          height={70}
+          alt="captcha"
+        />
+      </Box>
     </>
   );
 }
