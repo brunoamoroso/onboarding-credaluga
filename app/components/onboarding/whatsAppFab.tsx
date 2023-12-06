@@ -16,8 +16,7 @@ export default function WhatsAppFab({bottom: {xs: xsBottom = "112px", md: mdBott
   return (
     <Link href={"https://wa.me/+553131914866"}>
       <Fab
-        variant="extended"
-        color="whatsapp"
+        variant="whatsapp"
         sx={{
           bottom: {xs: xsBottom, md: mdBottom},
           right: {xs: xsRight, md: mdRight},
