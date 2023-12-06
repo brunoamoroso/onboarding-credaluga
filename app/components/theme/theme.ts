@@ -4,6 +4,53 @@ import { Rubik, Poppins } from "next/font/google";
 const rubik = Rubik({ weight: ["700"], subsets: ["latin"] });
 const poppins = Poppins({ weight: ["500", "600", "700"], subsets: ["latin"] });
 
+declare module '@mui/material/styles'{
+  interface TypographyVariants{
+    displaySmall: React.CSSProperties;
+    headlineLarge: React.CSSProperties;
+    headlineMedium: React.CSSProperties;
+    headlineSmall: React.CSSProperties;
+    titleMedium: React.CSSProperties;
+    titleSmall: React.CSSProperties;
+    labelLargeProminent: React.CSSProperties;
+    labelSmall: React.CSSProperties;
+    bodyLarge: React.CSSProperties;
+    bodyMedium: React.CSSProperties;
+    bodySmall: React.CSSProperties;
+  }
+
+  //allow configuration using createTheme
+  interface TypographyVariantsOptions{
+    displaySmall?: React.CSSProperties;
+    headlineLarge?: React.CSSProperties;
+    headlineMedium?: React.CSSProperties;
+    headlineSmall?: React.CSSProperties;
+    titleMedium?: React.CSSProperties;
+    titleSmall?: React.CSSProperties;
+    labelLargeProminent?: React.CSSProperties;
+    labelSmall?: React.CSSProperties;
+    bodyLarge?: React.CSSProperties;
+    bodyMedium?: React.CSSProperties;
+    bodySmall?: React.CSSProperties;
+  }
+}
+
+declare module '@mui/material/Typography'{
+  interface TypographyPropsVariantOverrides{
+    displaySmall?: true;
+    headlineLarge?: true;
+    headlineMedium?: true;
+    headlineSmall?: true;
+    titleMedium?: true;
+    titleSmall?: true;
+    labelLargeProminent?: true;
+    labelSmall?: true;
+    bodyLarge?: true;
+    bodyMedium?: true;
+    bodySmall?: true;
+  }
+}
+
 const theme = createTheme({
   palette:{
     primary:{
