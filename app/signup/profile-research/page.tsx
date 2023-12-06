@@ -148,7 +148,7 @@ export default function ProfileResearch() {
             <Grid
               container
               item
-              marginTop={"48px"}
+              marginTop={"32px"}
               justifyContent={"space-between"}
               sx={{
                 height: { xs: "90vh", md: "auto" },
@@ -175,9 +175,17 @@ export default function ProfileResearch() {
                       <i className="bi bi-arrow-left"></i>
                     </IconButton>
                   </Grid>
-                  <Typography variant="displaySmall">
-                    Vamos nos conhecer melhor!
-                  </Typography>
+                  <Grid item display={{ xs: "none", md: "flex" }}>
+                    <Typography variant="displaySmall">
+                      Vamos nos conhecer melhor!
+                    </Typography>
+                  </Grid>
+                  {/* mobile */}
+                  <Grid item display={{ xs: "flex", md: "none" }}>
+                    <Typography variant="headlineMedium">
+                      Vamos nos conhecer melhor!
+                    </Typography>
+                  </Grid>
                   <Typography variant="bodyMedium">
                     Aqui na CredAluga, valorizamos a individualidade. Responda
                     algumas perguntas rápidas para conhecer você melhor.
