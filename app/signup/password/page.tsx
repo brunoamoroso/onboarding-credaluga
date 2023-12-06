@@ -230,7 +230,7 @@ export default function Password() {
                       xs={12}
                       sx={{
                         paddingTop: { xs: "40px", md: "40px" },
-                        paddingBottom: { xs: "0px", md: "0px" },
+                        paddingBottom: { xs: "80px", md: "0px" },
                       }}
                       alignItems={"end"}
                     >
