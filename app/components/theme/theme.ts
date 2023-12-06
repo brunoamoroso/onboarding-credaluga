@@ -355,6 +355,10 @@ const theme = createTheme({
         {
           props: { variant: "whatsapp" },
           style: {
+            padding: "0px 16px",
+            borderRadius: "24px",
+            height: "48px",
+            width: "auto",
             backgroundColor: "#25D366",
             color: "#FFF",
             textTransform: "none",
