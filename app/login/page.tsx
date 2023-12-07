@@ -83,7 +83,7 @@ export default function Login() {
       <main>
         <Container
           sx={{
-            height: { xs: "79vh", md: "auto" },
+            height: { xs: "60vh", md: "auto" },
             marginTop: "48px",
             marginBottom: { xs: "80px", md: "48px" },
             justifyContent: "center",
@@ -118,6 +118,7 @@ export default function Login() {
             <Grid
               container
               item
+              md
               justifyContent={"space-between"}
               flexDirection={"column"}
               sx={{
@@ -128,7 +129,6 @@ export default function Login() {
                   lg: "48px 48px 24px 24px",
                 },
               }}
-              md
             >
               <Grid
                 container
@@ -153,8 +153,8 @@ export default function Login() {
                   action={handleAction}
                   style={{ width: "100%", display: "flex", flexGrow: "1" }}
                 >
-                  <Grid container item gap={"40px"}>
-                    <Grid container item gap={"8px"} alignSelf={"flex-start"}>
+                  <Grid container item flexDirection={"column"} justifyContent={"space-between"}>
+                    <Grid container item gap={"8px"} alignSelf={"flex-start"} flexDirection={"column"}>
                       <Grid container item gap={"24px"}>
                         <Grid item xs={12}>
                           <TextField
@@ -241,8 +241,7 @@ export default function Login() {
                     <Grid
                       container
                       item
-                      flexDirection={"column"}
-                      justifyContent={"flex-end"}
+                      paddingTop={"40px"}
                     >
                       <Button
                         type="submit"
