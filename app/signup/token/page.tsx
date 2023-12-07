@@ -206,9 +206,9 @@ export default function Token() {
                   <Grid
                     container
                     item
-                    gap={"24px"}
+                    gap={{xs: "0px", md: "24px"}}
                     xs={12}
-                    justifyContent={"center"}
+                    justifyContent={{xs: "space-between", md: "center"}}
                   >
                     <TokenInput
                       id="0"
@@ -290,7 +290,7 @@ export default function Token() {
                 xs={12}
                 alignSelf={"flex-end"}
                 sx={{
-                  paddingTop: { xs: "0px", md: "72px" },
+                  paddingTop: { xs: "40px", md: "72px" },
                   paddingBottom: { xs: "40px", md: "0px" },
                 }}
               >
