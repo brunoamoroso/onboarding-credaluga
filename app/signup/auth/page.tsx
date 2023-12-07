@@ -85,7 +85,7 @@ export default function Auth() {
               item
               marginTop={"32px"}
               sx={{
-                height: { xs: "73vh", md: "auto" },
+                height: { xs: "80vh", md: "auto" },
                 backgroundColor: { xs: "transparent", md: "#FFFFFF" },
                 padding: { xs: "0px", md: "24px" },
                 borderRadius: { xs: "0px", md: "24px" },
@@ -168,7 +168,7 @@ export default function Auth() {
                         item
                         xs={12}
                         sx={{
-                          marginTop: { xs: "0px", md: "40px" },
+                          marginTop: "40px",
                           marginBottom: { xs: "40px", md: "0px" },
                         }}
                         alignContent={"end"}
@@ -191,7 +191,7 @@ export default function Auth() {
           </Grid>
         </Container>
       </main>
-      <WhatsAppFab bottom={{ xs: "156px", md: "48px" }} />
+      <WhatsAppFab bottom={{ xs: "120px", md: "48px" }} />
     </Container>
   );
 }

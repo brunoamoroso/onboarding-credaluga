@@ -138,20 +138,14 @@ export default function Login() {
                 flexDirection={"column"}
               >
                 <Grid container item gap={"8px"} flexDirection={"column"}>
-                  <Grid item display={{xs: "none", md: "flex"}}>
-                    <Typography variant="displaySmall">
-                      Seja bem vindo(a) a CredAluga
-                    </Typography>
-                  </Grid>
-                  {/* mobile */}
-                  <Grid item display={{xs: "flex", md: "none"}}>
+                  <Grid item>
                     <Typography variant="headlineSmall">
-                      Seja bem vindo(a) a CredAluga
+                      Bem vindo(a) a CredAluga
                     </Typography>
                   </Grid>
                   <Typography variant="bodyMedium">
                     Preencha seus dados para acessar a plataforma que irá
-                    facilitar seus aluguéis.
+                    facilitar seu aluguel.
                   </Typography>
                 </Grid>
 
