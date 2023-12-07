@@ -147,7 +147,7 @@ export default function Auth() {
                   marginTop: { xs: "40px", md: "40px" },
                 }}
               >
-                <Link href={"/signup/token"}>
+                <Link href={"/dashboard"}>
                   <Button
                     variant="contained"
                     color="primary"
