@@ -85,7 +85,7 @@ export default function Auth() {
               item
               marginTop={"32px"}
               sx={{
-                height: { xs: "71vh", md: "auto" },
+                height: { xs: "60vh", md: "auto" },
                 backgroundColor: { xs: "transparent", md: "#FFFFFF" },
                 padding: { xs: "0px", md: "24px" },
                 borderRadius: { xs: "0px", md: "24px" },
