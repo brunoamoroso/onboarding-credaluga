@@ -177,13 +177,13 @@ export default function ProfileResearch() {
                   </Grid>
                   <Grid item display={{ xs: "none", md: "flex" }}>
                     <Typography variant="displaySmall">
-                      Vamos nos conhecer melhor!
+                      Vamos nos conhecer melhor?
                     </Typography>
                   </Grid>
                   {/* mobile */}
                   <Grid item display={{ xs: "flex", md: "none" }}>
                     <Typography variant="headlineMedium">
-                      Vamos nos conhecer melhor!
+                      Vamos nos conhecer melhor?
                     </Typography>
                   </Grid>
                   <Typography variant="bodyMedium">

@@ -284,9 +284,6 @@ const theme = createTheme({
         },
         content: ({theme}) => ({
           fontFamily: `${rubik.style.fontFamily}, Helvetica, Arial, sans-serif`,
-          [theme.breakpoints.down('md')]:{
-            fontSize: "0.875rem",
-          },
           fontSize: "1rem",
           fontWeight: "700",
           lineHeight: "1.5rem",
