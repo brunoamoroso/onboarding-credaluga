@@ -83,7 +83,7 @@ export default function Login() {
       <main>
         <Container
           sx={{
-            height: { xs: "60vh", md: "auto" },
+            height: { xs: "71vh", md: "auto" },
             marginTop: "48px",
             marginBottom: { xs: "80px", md: "48px" },
             justifyContent: "center",
