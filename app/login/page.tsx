@@ -139,13 +139,13 @@ export default function Login() {
               >
                 <Grid container item gap={"8px"} flexDirection={"column"}>
                   <Grid item>
-                    <Typography variant="headlineSmall">
+                    <Typography variant="headlineMedium">
                       Bem vindo(a) a CredAluga
                     </Typography>
                   </Grid>
                   <Typography variant="bodyMedium">
                     Preencha seus dados para acessar a plataforma que irá
-                    facilitar seu aluguel.
+                    facilitar seu aluguel
                   </Typography>
                 </Grid>
 
