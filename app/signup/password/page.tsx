@@ -120,7 +120,7 @@ export default function Password() {
               item
               marginTop={"32px"}
               sx={{
-                height: { xs: "65vh", md: "auto" },
+                height: { xs: "70vh", md: "auto" },
                 backgroundColor: { xs: "transparent", md: "#FFFFFF" },
                 padding: { xs: "0px", md: "24px" },
                 borderRadius: { xs: "0px", md: "24px" },
@@ -178,7 +178,7 @@ export default function Password() {
                     flexDirection={"column"}
                     flexWrap={"nowrap"}
                   >
-                    <Grid container item gap={"24px"} xs={12} flexGrow={"1"}>
+                    <Grid container item gap={"24px"} xs={12} flex={"1 1 auto"} flexDirection={"column"}>
                       <Grid container item gap={"8px"}>
                         <TextField
                           id="password"
