@@ -120,7 +120,7 @@ export default function Password() {
               item
               marginTop={"32px"}
               sx={{
-                height: { xs: "70vh", md: "auto" },
+                height: { xs: "65vh", md: "auto" },
                 backgroundColor: { xs: "transparent", md: "#FFFFFF" },
                 padding: { xs: "0px", md: "24px" },
                 borderRadius: { xs: "0px", md: "24px" },
