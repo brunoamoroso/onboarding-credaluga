@@ -107,7 +107,7 @@ export default function Password() {
         step={4}
         title="Definir Senha"
         icon={<i className="bi bi-person-circle"></i>}
-        progress={50}
+        progress={75}
         backBtn={true}
       />
 
@@ -118,7 +118,7 @@ export default function Password() {
             <Grid
               container
               item
-              marginTop={"48px"}
+              marginTop={"32px"}
               sx={{
                 height: { xs: "65vh", md: "auto" },
                 backgroundColor: { xs: "transparent", md: "#FFFFFF" },
@@ -145,9 +145,16 @@ export default function Password() {
                       <i className="bi bi-arrow-left"></i>
                     </IconButton>
                   </Grid>
-                  <Typography variant="displaySmall" component={"h1"}>
-                    Crie sua senha
-                  </Typography>
+                  <Grid item display={{ xs: "none", md: "flex" }}>
+                    <Typography variant="displaySmall" component={"h1"}>
+                      Crie sua senha
+                    </Typography>
+                  </Grid>
+                  <Grid item display={{ xs: "flex", md: "none" }}>
+                    <Typography variant="headlineMedium" component={"h1"}>
+                      Crie sua senha
+                    </Typography>
+                  </Grid>
                   <Typography variant="bodyMedium" component={"p"}>
                     Estamos quase lá. escolha uma combinação forte e segura.
                   </Typography>
