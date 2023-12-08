@@ -140,7 +140,7 @@ export default function Login() {
                 <Grid container item gap={"8px"} flexDirection={"column"}>
                   <Grid item>
                     <Typography variant="headlineMedium">
-                      Bem vindo(a) a CredAluga
+                      Bem-vindo(a) a CredAluga
                     </Typography>
                   </Grid>
                   <Typography variant="bodyMedium">
