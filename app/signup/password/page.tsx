@@ -104,10 +104,10 @@ export default function Password() {
   return (
     <Container disableGutters={true} maxWidth={false}>
       <Navbar
-        step={4}
+        step={3}
         title="Definir Senha"
         icon={<i className="bi bi-person-circle"></i>}
-        progress={75}
+        progress={50}
         backBtn={true}
       />
 
