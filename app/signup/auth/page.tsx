@@ -28,7 +28,6 @@ export default function Auth() {
     }
 
     const inputCPF = e.target as HTMLInputElement;
-    const cleanCPF = inputCPF.value.replace(".", "").replace("-", "");
     if (inputCPF.value.length >= 14 && e.key !== "Backspace") {
       e.preventDefault();
       setCPFValue(inputCPF.value.slice(0, 14));
@@ -58,7 +57,7 @@ export default function Auth() {
     }
 
     localStorage.setItem("cpf", await encrypt(formData.get("cpf")));
-    router.push("/signup/profile-research");
+    router.push("/signup/token");
   }
 
   return (
@@ -191,7 +190,7 @@ export default function Auth() {
           </Grid>
         </Container>
       </main>
-      <WhatsAppFab bottom={{ xs: "120px", md: "48px" }} />
+      <WhatsAppFab bottom={{ xs: "80px", md: "48px" }} />
     </Container>
   );
 }

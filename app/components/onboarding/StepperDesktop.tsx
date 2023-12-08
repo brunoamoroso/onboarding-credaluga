@@ -81,7 +81,7 @@ function CustomStepIcon(props: StepIconProps) {
   );
 }
 
-const steps = ['Autenticação', 'Pesquisa de Perfil', 'Token', 'Definir Senha', 'Aceite dos Termos'];
+const steps = ['Autenticação', 'Token', 'Definir Senha', 'Aceite dos Termos'];
 
 export default function StepperDesktop({activeStep}: {activeStep: number}) {
   return (
