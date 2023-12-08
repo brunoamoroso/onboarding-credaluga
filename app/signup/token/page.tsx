@@ -144,10 +144,10 @@ export default function Token() {
   return (
     <Container disableGutters={true} maxWidth={false}>
       <Navbar
-        step={3}
+        step={2}
         title="Token"
         icon={<i className="bi bi-asterisk"></i>}
-        progress={50}
+        progress={25}
         backBtn={true}
       />
 
