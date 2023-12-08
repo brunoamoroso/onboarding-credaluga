@@ -156,7 +156,7 @@ export default function Password() {
                     </Typography>
                   </Grid>
                   <Typography variant="bodyMedium" component={"p"}>
-                    Estamos quase lá. escolha uma combinação forte e segura.
+                    Estamos quase lá. Escolha uma combinação forte e segura.
                   </Typography>
                 </Grid>
 
