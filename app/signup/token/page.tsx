@@ -66,7 +66,7 @@ export default function Token() {
     setCellphone(
       mockCell.replace(/(\(\d{2}\))(.\d{4,5})(.\d{4})/g, "$1*****$3")
     );
-  });
+  }, [cellphone]);
 
   function handleResendToken() {
     setResendToken(true);
